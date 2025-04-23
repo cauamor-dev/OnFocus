@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login ON Focus</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="particles"></div>
+    <div class="login-container">
+        <div class="left-side">
+            <h2>É HORA DE<br>MUDAR DE<br>VIDA COM</h2>
+            <div class="logo">
+                <img src="Bold (11).png" alt="ON Focus Logo">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="login-form">
+                <h1>LOGIN</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="usuario">USUARIO</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="usuario" name="usuario">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">SENHA</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="senha" name="senha">
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text"></span>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="lembrar" name="lembrar">
+                            <label for="lembrar">Lembrar-me</label>
+                        </div>
+                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+                    <button type="submit" class="login-button">
+                        <span>ENTRAR</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div class="register-link">
+                        <span>NÃO TEM UMA CONTA? </span>
+                        <a href="#" class="cadastre-se">CADASTRE-SE</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

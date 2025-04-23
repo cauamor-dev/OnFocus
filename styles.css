@@ -1,0 +1,722 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de slide-in */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animações para as partículas */
+@keyframes float-up {
+    0% {
+        transform: translateY(120vh) scale(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+        transform: translateY(80vh) scale(1);
+    }
+    100% {
+        transform: translateY(-20vh) scale(0.8);
+        opacity: 0;
+    }
+}
+
+@keyframes float-diagonal {
+    0% {
+        transform: translate(-100px, 120vh) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+        transform: translate(20vw, 80vh) rotate(120deg);
+    }
+    100% {
+        transform: translate(120vw, -20vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float-zigzag {
+    0% {
+        transform: translate(0, 120vh) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        transform: translate(50px, 90vh) rotate(90deg);
+        opacity: 0.5;
+    }
+    40% {
+        transform: translate(-50px, 60vh) rotate(180deg);
+        opacity: 0.3;
+    }
+    60% {
+        transform: translate(50px, 30vh) rotate(270deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(0, -20vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 0.2;
+    }
+    50% {
+        transform: scale(1.5) translateY(-20px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) translateY(-40px);
+        opacity: 0;
+    }
+}
+
+body {
+    background-color: #2A2A2A;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, transparent 0%, #2A2A2A 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.login-container {
+    background-color: #1E1E1E;
+    border-radius: 20px;
+    display: flex;
+    width: 900px;
+    height: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.left-side {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: slideIn 1s ease-out;
+}
+
+.left-side h2 {
+    color: #FFD700;
+    font-size: 2.5em;
+    line-height: 1.2;
+    transition: transform 0.3s ease;
+}
+
+.left-side h2:hover {
+    transform: scale(1.05);
+}
+
+.logo {
+    width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.right-side {
+    flex: 1;
+    background-color: #2A2A2A;
+    border-radius: 30px 0 0 30px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    animation: fadeIn 0.8s ease-out 0.3s backwards;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 300px;
+}
+
+.login-form h1 {
+    color: #FFD700;
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-form h1::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #FFD700;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.login-form h1:hover::after {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.form-group:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    background-color: #1E1E1E;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #FFD700;
+    transform: translateY(-2px);
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.8s forwards;
+}
+
+.register-link span {
+    color: white;
+}
+
+.cadastre-se {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cadastre-se::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #FFD700;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cadastre-se:hover::after {
+    transform: scaleX(1);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .login-container {
+        width: 90%;
+        max-width: 1000px;
+    }
+
+    .logo {
+        width: 350px;
+    }
+}
+
+@media (max-width: 900px) {
+    .login-container {
+        width: 95%;
+        height: auto;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .left-side, .right-side {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .left-side {
+        padding-bottom: 0;
+    }
+
+    .right-side {
+        border-radius: 30px 30px 0 0;
+        margin-left: 0;
+    }
+
+    .logo {
+        width: 300px;
+        margin: 20px 0;
+    }
+
+    .left-side h2 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    .login-container {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .logo {
+        width: 250px;
+    }
+
+    .left-side h2 {
+        font-size: 2em;
+    }
+
+    .login-form {
+        padding: 0 10px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .forgot-password {
+        margin-left: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .login-button {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .left-side, .right-side {
+        padding: 20px 15px;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .left-side h2 {
+        font-size: 1.8em;
+    }
+
+    .login-form h1 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 0.85em;
+    }
+
+    .form-group input {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .remember-me label {
+        font-size: 0.85em;
+    }
+
+    .forgot-password {
+        font-size: 0.85em;
+    }
+
+    .register-link {
+        font-size: 0.75em;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-height: 600px) {
+    .login-container {
+        min-height: auto;
+    }
+
+    .left-side {
+        padding: 20px 15px;
+    }
+
+    .logo {
+        width: 180px;
+        margin: 10px 0;
+    }
+
+    .left-side h2 {
+        margin-bottom: 10px;
+    }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+    .login-container {
+        flex-direction: row;
+        height: auto;
+    }
+
+    .left-side, .right-side {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .right-side {
+        border-radius: 0 20px 20px 0;
+        margin-left: 20px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .left-side h2 {
+        font-size: 1.6em;
+    }
+}
+
+/* Ajustes para telas muito estreitas */
+@media (max-width: 320px) {
+    .left-side h2 {
+        font-size: 1.5em;
+    }
+
+    .logo {
+        width: 160px;
+    }
+
+    .login-form h1 {
+        font-size: 1.6em;
+    }
+
+    .form-group input {
+        padding: 7px;
+    }
+
+    .login-button {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+}
+
+/* Input com ícones */
+.input-with-icon {
+    position: relative;
+    width: 100%;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFD700;
+    font-size: 1.2em;
+}
+
+.input-with-icon input {
+    padding-left: 35px;
+}
+
+/* Indicador de força da senha */
+.password-strength {
+    margin-top: 5px;
+    font-size: 0.8em;
+}
+
+.strength-bar {
+    height: 4px;
+    background-color: #1E1E1E;
+    border-radius: 2px;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.strength-text {
+    color: #FFD700;
+    font-size: 0.75em;
+    margin-top: 3px;
+    display: inline-block;
+}
+
+/* Opções do formulário */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+/* Checkbox personalizado */
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input[type="checkbox"] {
+    display: none;
+}
+
+.remember-me label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    color: white;
+    font-size: 0.9em;
+}
+
+.remember-me label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid #FFD700;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.remember-me input[type="checkbox"]:checked + label:before {
+    background-color: #FFD700;
+}
+
+.remember-me input[type="checkbox"]:checked + label:after {
+    content: '✓';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1E1E1E;
+    font-size: 0.8em;
+}
+
+/* Link esqueceu senha */
+.forgot-password {
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 0.9em;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.forgot-password::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #FFD700;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.forgot-password:hover::after {
+    transform: scaleX(1);
+}
+
+/* Botão de login */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    border: none;
+    border-radius: 5px;
+    color: #1E1E1E;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.login-button i {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.login-button:hover i {
+    transform: translateX(5px);
+}
+
+.login-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #FFA500, #FFD700);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.login-button:hover::before {
+    opacity: 1;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .form-options {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .forgot-password {
+        margin-left: 30px;
+    }
+}
+
+/* Container de partículas */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Partículas individuais */
+.particle {
+    position: absolute;
+    background: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* Diferentes tipos de partículas */
+.particle[data-type="0"] {
+    width: 3px;
+    height: 3px;
+    filter: blur(1px);
+    animation: float-up 8s infinite linear;
+    animation-delay: calc(var(--delay) * 1s);
+}
+
+.particle[data-type="1"] {
+    width: 2px;
+    height: 2px;
+    filter: blur(1px);
+    animation: float-diagonal 12s infinite linear;
+    animation-delay: calc(var(--delay) * 1s);
+}
+
+.particle[data-type="2"] {
+    width: 2px;
+    height: 2px;
+    filter: blur(0.5px);
+    animation: float-zigzag 10s infinite linear;
+    animation-delay: calc(var(--delay) * 1s);
+}
+
+.particle[data-type="3"] {
+    width: 4px;
+    height: 4px;
+    filter: blur(2px);
+    animation: pulse 6s infinite linear;
+    animation-delay: calc(var(--delay) * 1s);
+} 
