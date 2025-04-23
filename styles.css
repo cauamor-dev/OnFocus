@@ -299,6 +299,10 @@ body::before {
     .logo {
         width: 350px;
     }
+    
+    .about-sections {
+        padding: 0 15px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -306,7 +310,8 @@ body::before {
         width: 95%;
         height: auto;
         flex-direction: column;
-        min-height: 100vh;
+        min-height: auto;
+        margin: 100px auto 50px;
     }
 
     .left-side, .right-side {
@@ -331,6 +336,71 @@ body::before {
     .left-side h2 {
         font-size: 2.2em;
     }
+    
+    .about-sections {
+        margin-top: 20vh;
+    }
+    
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .content-wrapper.reverse {
+        flex-direction: column;
+    }
+    
+    .section-content {
+        padding: 30px 20px;
+    }
+    
+    .avaliacoes-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .avaliacao-card {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .site-footer .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .site-footer .footer-section {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    
+    .site-footer .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .site-footer .social-icons {
+        justify-content: center;
+    }
+    
+    .site-footer .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .site-footer .footer-links a::before {
+        left: -20px;
+    }
+    
+    .site-footer .contact-info li {
+        justify-content: center;
+    }
+    
+    .site-footer .footer-bottom-links {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -341,6 +411,7 @@ body::before {
     .login-container {
         width: 100%;
         border-radius: 0;
+        margin: 0 auto 30px;
     }
 
     .logo {
@@ -348,29 +419,46 @@ body::before {
     }
 
     .left-side h2 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
-
-    .login-form {
+    
+    .about-sections {
+        margin-top: 10vh;
+        gap: 30px;
+    }
+    
+    .section-content h2 {
+        font-size: 1.8em;
+    }
+    
+    .text-content p, .objetivos-lista li {
+        font-size: 0.95em;
+    }
+    
+    .comentarios-container {
         padding: 0 10px;
     }
-
-    .form-options {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+    
+    .comentario-form {
+        padding: 20px 15px;
     }
-
-    .forgot-password {
-        margin-left: 30px;
+    
+    .rating label {
+        font-size: 1.2em;
     }
-
-    .form-group {
-        margin-bottom: 15px;
+    
+    .site-footer {
+        padding: 40px 0 0;
     }
-
-    .login-button {
-        padding: 15px;
+    
+    .site-footer .footer-section h3 {
+        font-size: 1.3em;
+    }
+    
+    .site-footer .social-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
     }
 }
 
@@ -384,7 +472,7 @@ body::before {
     }
 
     .left-side h2 {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 
     .login-form h1 {
@@ -412,12 +500,43 @@ body::before {
     .register-link {
         font-size: 0.75em;
     }
+    
+    .about-sections {
+        margin-top: 5vh;
+    }
+    
+    .section-content {
+        padding: 20px 15px;
+    }
+    
+    .section-content h2 {
+        font-size: 1.6em;
+    }
+    
+    .text-content p, .objetivos-lista li {
+        font-size: 0.9em;
+    }
+    
+    .site-footer {
+        padding: 30px 0 0;
+    }
+    
+    .site-footer .footer-section h3 {
+        font-size: 1.2em;
+    }
+    
+    .site-footer .footer-section p,
+    .site-footer .footer-links a,
+    .site-footer .contact-info li {
+        font-size: 0.85em;
+    }
 }
 
 /* Ajustes para telas muito pequenas */
 @media (max-height: 600px) {
     .login-container {
         min-height: auto;
+        margin: 50px auto;
     }
 
     .left-side {
@@ -439,6 +558,7 @@ body::before {
     .login-container {
         flex-direction: row;
         height: auto;
+        margin: 20px auto;
     }
 
     .left-side, .right-side {
@@ -481,6 +601,32 @@ body::before {
     .login-button {
         padding: 12px;
         font-size: 0.9em;
+    }
+    
+    .about-sections {
+        margin-top: 0;
+    }
+    
+    .section-content h2 {
+        font-size: 1.5em;
+    }
+    
+    .text-content p, .objetivos-lista li {
+        font-size: 0.85em;
+    }
+    
+    .site-footer {
+        padding: 20px 0 0;
+    }
+    
+    .site-footer .footer-section h3 {
+        font-size: 1.1em;
+    }
+    
+    .site-footer .footer-section p,
+    .site-footer .footer-links a,
+    .site-footer .contact-info li {
+        font-size: 0.85em;
     }
 }
 
