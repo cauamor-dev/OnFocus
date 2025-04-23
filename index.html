@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login ON Focus</title>
+    <title>ON Focus</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -57,6 +57,196 @@
             </div>
         </div>
     </div>
+    <div class="about-sections">
+        <section class="quem-somos">
+            <div class="section-content">
+                <h2>QUEM SOMOS</h2>
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <p>A ON Focus é uma empresa dedicada a transformar vidas através do fitness e bem-estar. Nossa missão é proporcionar uma experiência única de treinamento, combinando tecnologia e expertise para alcançar resultados extraordinários.</p>
+                        <p>Com uma equipe de profissionais altamente qualificados e uma metodologia exclusiva, estamos comprometidos em ajudar nossos clientes a alcançarem seus objetivos de forma sustentável e eficiente.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="logo.png" alt="Equipe ON Focus">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="objetivo-marca">
+            <div class="section-content">
+                <h2>OBJETIVO DA MARCA</h2>
+                <div class="content-wrapper reverse">
+                    <div class="text-content">
+                        <p>Nosso objetivo é ser referência em transformação de vida através do fitness, oferecendo soluções personalizadas e eficientes para cada indivíduo.</p>
+                        <ul class="objetivos-lista">
+                            <li>Promover saúde e bem-estar</li>
+                            <li>Transformar vidas através do fitness</li>
+                            <li>Oferecer metodologias exclusivas</li>
+                            <li>Garantir resultados sustentáveis</li>
+                        </ul>
+                    </div>
+                    <div class="image-content">
+                        <img src="logo.png" alt="Objetivo ON Focus">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="avaliacoes">
+            <div class="section-content">
+                <h2>AVALIAÇÕES</h2>
+                <div class="avaliacoes-container">
+                    <div class="avaliacao-card">
+                        <div class="avaliacao-header">
+                            <img src="imagens/cliente maria.png" alt="Cliente 1" class="avatar">
+                            <div class="info-cliente">
+                                <h3>Maria Silva</h3>
+                                <div class="estrelas">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="depoimento">"A ON Focus transformou completamente minha vida! Em 6 meses, perdi 15kg e ganhei muita disposição. Os treinos são personalizados e os instrutores são muito atenciosos."</p>
+                    </div>
+
+                    <div class="avaliacao-card">
+                        <div class="avaliacao-header">
+                            <img src="imagens/cliente joao.png" alt="Cliente 2" class="avatar">
+                            <div class="info-cliente">
+                                <h3>João Santos</h3>
+                                <div class="estrelas">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="depoimento">"Nunca imaginei que conseguiria ter tanta força e resistência. A metodologia da ON Focus é única e os resultados são impressionantes. Recomendo a todos!"</p>
+                    </div>
+
+                    <div class="avaliacao-card">
+                        <div class="avaliacao-header">
+                            <img src="imagens/cliente ana.jpg" alt="Cliente 3" class="avatar">
+                            <div class="info-cliente">
+                                <h3>Ana Oliveira</h3>
+                                <div class="estrelas">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="depoimento">"A ON Focus não é só uma academia, é um estilo de vida. A equipe é incrível e os resultados superam todas as expectativas. Já são 2 anos de transformação!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comentarios">
+            <div class="section-content">
+                <h2>DEIXE SEU COMENTÁRIO</h2>
+                <div class="comentarios-container">
+                    <form id="comentarioForm" class="comentario-form">
+                        <div class="form-group">
+                            <label for="nome">NOME</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-MAIL</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="avaliacao">AVALIAÇÃO</label>
+                            <div class="rating">
+                                <input type="radio" id="star5" name="rating" value="5">
+                                <label for="star5"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1"><i class="fas fa-star"></i></label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensagem">MENSAGEM</label>
+                            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <span>ENVIAR COMENTÁRIO</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ON FOCUS</h3>
+                <p>Transformando vidas através do fitness e bem-estar.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>LINKS ÚTEIS</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Planos</a></li>
+                    <li><a href="#">Avaliações</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>CONTATO</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - Centro</li>
+                    <li><i class="fas fa-phone"></i> (11) 1234-5678</li>
+                    <li><i class="fas fa-envelope"></i> contato@onfocus.com.br</li>
+                    <li><i class="fas fa-clock"></i> Seg-Sex: 6h às 22h, Sáb: 8h às 14h</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 ON Focus. Todos os direitos reservados.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+    
     <script src="script.js"></script>
 </body>
 </html> 

@@ -86,4 +86,75 @@ loginForm.addEventListener('submit', (e) => {
     console.log('Usuário:', usuarioInput.value);
     console.log('Senha:', senhaInput.value);
     console.log('Lembrar-me:', document.getElementById('lembrar').checked);
-}); 
+});
+
+// Função para verificar se um elemento está visível na viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    // Elemento está visível quando pelo menos 30% dele está na tela
+    const elementVisible = 30;
+    
+    return (
+        rect.top <= (windowHeight - elementVisible) &&
+        rect.bottom >= elementVisible
+    );
+}
+
+// Função para adicionar/remover a classe 'visible' aos elementos
+function handleScroll() {
+    const sections = document.querySelectorAll('.quem-somos, .objetivo-marca, .avaliacoes, .comentarios');
+    
+    sections.forEach(section => {
+        const isVisible = isElementInViewport(section);
+        
+        if (isVisible) {
+            section.classList.add('visible');
+        } else if (section.getBoundingClientRect().top > window.innerHeight) {
+            // Só remove a classe se o elemento estiver completamente acima da viewport
+            section.classList.remove('visible');
+        }
+    });
+}
+
+// Adicionar evento de scroll com throttle para melhor performance
+let isScrolling = false;
+window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+            handleScroll();
+            isScrolling = false;
+        });
+        isScrolling = true;
+    }
+});
+
+// Verificar elementos visíveis quando a página carregar
+window.addEventListener('load', handleScroll);
+
+// Verificar elementos visíveis quando a página for redimensionada
+window.addEventListener('resize', handleScroll);
+
+// Manipulação do formulário de comentários
+const comentarioForm = document.getElementById('comentarioForm');
+if (comentarioForm) {
+    comentarioForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Coletar dados do formulário
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const rating = document.querySelector('input[name="rating"]:checked')?.value || 0;
+        const mensagem = document.getElementById('mensagem').value;
+        
+        // Aqui você pode adicionar código para enviar os dados para um servidor
+        console.log('Comentário enviado:', { nome, email, rating, mensagem });
+        
+        // Mostrar mensagem de sucesso
+        alert('Obrigado pelo seu comentário!');
+        
+        // Limpar o formulário
+        comentarioForm.reset();
+    });
+} 
