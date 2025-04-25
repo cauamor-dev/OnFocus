@@ -149,10 +149,14 @@ body::before {
 }
 
 .left-side h2 {
-    color: #FFD700;
+    color: white;
     font-size: 2em;
     line-height: 1.2;
     transition: transform 0.3s ease;
+}
+
+.left-side h2 span {
+    color: #FFD700;
 }
 
 .left-side h2:hover {
@@ -160,7 +164,7 @@ body::before {
 }
 
 .logo {
-    width: 400px;
+    width: 300px;
     transition: transform 0.3s ease;
 }
 
