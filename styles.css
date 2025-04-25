@@ -1,3 +1,4 @@
+/* Reset básico para todos os elementos */
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +6,8 @@
     font-family: Arial, sans-serif;
 }
 
-/* Animação de fade-in */
+/* Animações */
+/* Animação de fade-in para elementos que aparecem suavemente */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -17,7 +19,7 @@
     }
 }
 
-/* Animação de slide-in */
+/* Animação de slide-in para elementos que deslizam da esquerda */
 @keyframes slideIn {
     from {
         transform: translateX(-100%);
@@ -29,7 +31,8 @@
     }
 }
 
-/* Animações para as partículas */
+/* Animações para as partículas de fundo */
+/* Animação de partícula subindo */
 @keyframes float-up {
     0% {
         transform: translateY(120vh) scale(0);
@@ -45,6 +48,7 @@
     }
 }
 
+/* Animação de partícula em movimento diagonal */
 @keyframes float-diagonal {
     0% {
         transform: translate(-100px, 120vh) rotate(0deg);
@@ -60,6 +64,7 @@
     }
 }
 
+/* Animação de partícula em ziguezague */
 @keyframes float-zigzag {
     0% {
         transform: translate(0, 120vh) rotate(0deg);
@@ -83,6 +88,7 @@
     }
 }
 
+/* Animação de pulso para elementos */
 @keyframes pulse {
     0% {
         transform: scale(1) translateY(0);
@@ -98,6 +104,7 @@
     }
 }
 
+/* Estilos do corpo da página */
 body {
     background-color: #2A2A2A;
     min-height: 100vh;
@@ -110,6 +117,7 @@ body {
     margin: 0;
 }
 
+/* Efeito de gradiente radial no fundo */
 body::before {
     content: '';
     position: fixed;
@@ -122,6 +130,7 @@ body::before {
     z-index: -1;
 }
 
+/* Container principal do login */
 .login-container {
     background-color: #1E1E1E;
     border-radius: 20px;
@@ -137,6 +146,7 @@ body::before {
     flex-shrink: 0;
 }
 
+/* Lado esquerdo do container de login */
 .left-side {
     flex: 1;
     padding: 40px;
@@ -148,6 +158,7 @@ body::before {
     animation: slideIn 1s ease-out;
 }
 
+/* Título do lado esquerdo */
 .left-side h2 {
     color: white;
     font-size: 2em;
@@ -155,28 +166,29 @@ body::before {
     transition: transform 0.3s ease;
 }
 
-.left-side h2 span {
-    color: #FFD700;
-}
-
+/* Efeito hover no título */
 .left-side h2:hover {
     transform: scale(1.05);
 }
 
+/* Estilo da logo */
 .logo {
     width: 300px;
     transition: transform 0.3s ease;
 }
 
+/* Efeito hover na logo */
 .logo:hover {
     transform: rotate(5deg) scale(1.1);
 }
 
+/* Imagem da logo */
 .logo img {
     width: 100%;
     height: auto;
 }
 
+/* Lado direito do container de login */
 .right-side {
     flex: 1;
     background-color: #2A2A2A;
@@ -189,11 +201,13 @@ body::before {
     animation: fadeIn 0.8s ease-out 0.3s backwards;
 }
 
+/* Formulário de login */
 .login-form {
     width: 100%;
     max-width: 300px;
 }
 
+/* Título do formulário */
 .login-form h1 {
     color: #FFD700;
     margin-bottom: 30px;
@@ -203,6 +217,7 @@ body::before {
     overflow: hidden;
 }
 
+/* Linha decorativa sob o título */
 .login-form h1::after {
     content: '';
     position: absolute;
@@ -215,16 +230,19 @@ body::before {
     transform: translateX(-50%);
 }
 
+/* Efeito hover na linha decorativa */
 .login-form h1:hover::after {
     width: 100%;
 }
 
+/* Grupos de campos do formulário */
 .form-group {
     margin-bottom: 20px;
     opacity: 0;
     animation: fadeIn 0.5s ease-out forwards;
 }
 
+/* Animação sequencial para os campos */
 .form-group:nth-child(1) {
     animation-delay: 0.4s;
 }
@@ -233,6 +251,7 @@ body::before {
     animation-delay: 0.6s;
 }
 
+/* Labels dos campos */
 .form-group label {
     display: block;
     color: white;
@@ -240,6 +259,7 @@ body::before {
     font-size: 0.9em;
 }
 
+/* Campos de entrada */
 .form-group input {
     width: 100%;
     padding: 10px;
@@ -251,12 +271,14 @@ body::before {
     transition: all 0.3s ease;
 }
 
+/* Efeito de foco nos campos */
 .form-group input:focus {
     outline: none;
     box-shadow: 0 0 0 2px #FFD700;
     transform: translateY(-2px);
 }
 
+/* Link de registro */
 .register-link {
     text-align: center;
     margin-top: 20px;
@@ -265,10 +287,12 @@ body::before {
     animation: fadeIn 0.5s ease-out 0.8s forwards;
 }
 
+/* Texto do link de registro */
 .register-link span {
     color: white;
 }
 
+/* Link de cadastro */
 .cadastre-se {
     color: #FFD700;
     text-decoration: none;
@@ -277,6 +301,7 @@ body::before {
     position: relative;
 }
 
+/* Linha decorativa sob o link de cadastro */
 .cadastre-se::after {
     content: '';
     position: absolute;
@@ -289,11 +314,13 @@ body::before {
     transition: transform 0.3s ease;
 }
 
+/* Efeito hover no link de cadastro */
 .cadastre-se:hover::after {
     transform: scaleX(1);
 }
 
-/* Responsividade */
+/* Media Queries para Responsividade */
+/* Ajustes para telas grandes */
 @media (max-width: 1200px) {
     .login-container {
         width: 90%;
@@ -309,6 +336,7 @@ body::before {
     }
 }
 
+/* Ajustes para telas médias */
 @media (max-width: 900px) {
     .login-container {
         width: 95%;
@@ -366,47 +394,9 @@ body::before {
         width: 100%;
         max-width: 500px;
     }
-    
-    .site-footer .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .site-footer .footer-section {
-        width: 100%;
-        margin-bottom: 40px;
-    }
-    
-    .site-footer .footer-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .site-footer .social-icons {
-        justify-content: center;
-    }
-    
-    .site-footer .footer-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .site-footer .footer-links a::before {
-        left: -20px;
-    }
-    
-    .site-footer .contact-info li {
-        justify-content: center;
-    }
-    
-    .site-footer .footer-bottom-links {
-        flex-direction: column;
-        gap: 10px;
-    }
 }
 
+/* Ajustes para telas pequenas */
 @media (max-width: 600px) {
     body {
         padding: 0;
@@ -437,32 +427,6 @@ body::before {
     
     .text-content p, .objetivos-lista li {
         font-size: 0.95em;
-    }
-    
-    .comentarios-container {
-        padding: 0 10px;
-    }
-    
-    .comentario-form {
-        padding: 20px 15px;
-    }
-    
-    .rating label {
-        font-size: 1.2em;
-    }
-    
-    .site-footer {
-        padding: 40px 0 0;
-    }
-    
-    .site-footer .footer-section h3 {
-        font-size: 1.3em;
-    }
-    
-    .site-footer .social-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 1em;
     }
 }
 
@@ -891,6 +855,7 @@ body::before {
     flex: 1 0 auto;
 }
 
+/* Seções Quem Somos e Objetivo da Marca */
 .quem-somos, .objetivo-marca {
     margin-bottom: 0;
     opacity: 0;
@@ -901,6 +866,7 @@ body::before {
     pointer-events: none;
 }
 
+/* Estado visível das seções */
 .quem-somos.visible, .objetivo-marca.visible {
     opacity: 1;
     transform: translateY(0);
@@ -908,6 +874,7 @@ body::before {
     pointer-events: auto;
 }
 
+/* Estado oculto das seções */
 .quem-somos:not(.visible), .objetivo-marca:not(.visible) {
     opacity: 0;
     transform: translateY(50px);
@@ -1283,7 +1250,7 @@ body::before {
     }
 }
 
-/* Footer - Nova implementação */
+/* Rodapé do Site */
 .site-footer {
     background-color: #1E1E1E;
     color: white;
@@ -1296,6 +1263,7 @@ body::before {
     flex-shrink: 0;
 }
 
+/* Conteúdo do rodapé */
 .site-footer .footer-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -1305,6 +1273,7 @@ body::before {
     padding: 0 20px;
 }
 
+/* Seções do rodapé */
 .site-footer .footer-section {
     flex: 1;
     min-width: 250px;
@@ -1312,6 +1281,7 @@ body::before {
     padding: 0 15px;
 }
 
+/* Títulos das seções do rodapé */
 .site-footer .footer-section h3 {
     color: #FFD700;
     margin-bottom: 20px;
@@ -1320,6 +1290,7 @@ body::before {
     padding-bottom: 10px;
 }
 
+/* Linha decorativa sob os títulos */
 .site-footer .footer-section h3::after {
     content: '';
     position: absolute;
@@ -1330,16 +1301,13 @@ body::before {
     background-color: #FFD700;
 }
 
-.site-footer .footer-section p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
+/* Ícones de redes sociais */
 .site-footer .social-icons {
     display: flex;
     gap: 15px;
 }
 
+/* Ícone individual de rede social */
 .site-footer .social-icon {
     display: flex;
     align-items: center;
@@ -1353,21 +1321,25 @@ body::before {
     transition: all 0.3s ease;
 }
 
+/* Efeito hover nos ícones sociais */
 .site-footer .social-icon:hover {
     background-color: #FFD700;
     color: #1E1E1E;
     transform: translateY(-5px);
 }
 
+/* Links do rodapé */
 .site-footer .footer-links {
     list-style: none;
     padding: 0;
 }
 
+/* Itens dos links */
 .site-footer .footer-links li {
     margin-bottom: 10px;
 }
 
+/* Links individuais */
 .site-footer .footer-links a {
     color: white;
     text-decoration: none;
@@ -1376,6 +1348,7 @@ body::before {
     padding-left: 15px;
 }
 
+/* Seta indicadora nos links */
 .site-footer .footer-links a::before {
     content: '→';
     position: absolute;
@@ -1385,32 +1358,33 @@ body::before {
     color: #FFD700;
 }
 
+/* Efeito hover nos links */
 .site-footer .footer-links a:hover {
     color: #FFD700;
     padding-left: 20px;
 }
 
-.site-footer .footer-links a:hover::before {
-    opacity: 1;
-}
-
+/* Informações de contato */
 .site-footer .contact-info {
     list-style: none;
     padding: 0;
 }
 
+/* Itens de contato */
 .site-footer .contact-info li {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
 }
 
+/* Ícones de contato */
 .site-footer .contact-info i {
     color: #FFD700;
     margin-right: 10px;
     font-size: 1.2em;
 }
 
+/* Rodapé inferior */
 .site-footer .footer-bottom {
     background-color: #151515;
     padding: 20px;
@@ -1418,17 +1392,20 @@ body::before {
     margin-top: 40px;
 }
 
+/* Copyright */
 .site-footer .footer-bottom p {
     margin-bottom: 10px;
     font-size: 0.9em;
 }
 
+/* Links do rodapé inferior */
 .site-footer .footer-bottom-links {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
+/* Links individuais do rodapé inferior */
 .site-footer .footer-bottom-links a {
     color: #FFD700;
     text-decoration: none;
@@ -1436,6 +1413,7 @@ body::before {
     transition: all 0.3s ease;
 }
 
+/* Efeito hover nos links do rodapé inferior */
 .site-footer .footer-bottom-links a:hover {
     color: white;
     text-decoration: underline;

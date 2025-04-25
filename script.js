@@ -1,4 +1,7 @@
-// Criação das partículas
+/**
+ * Sistema de Partículas Animadas
+ * Cria partículas flutuantes no fundo da página
+ */
 function createParticles() {
     const particlesContainer = document.querySelector('.particles');
     const numberOfParticles = 100;
@@ -6,52 +9,66 @@ function createParticles() {
     for (let i = 0; i < numberOfParticles; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
-        // Posição inicial aleatória
+        // Posição inicial aleatória para cada partícula
         particle.style.left = Math.random() * 100 + 'vw';
         particle.style.top = Math.random() * 100 + 'vh';
-        // Delay menor e mais consistente
+        // Define um delay aleatório para a animação
         particle.style.setProperty('--delay', Math.random() * 5);
-        // Garantir que cada partícula tenha um tipo de 0 a 3
+        // Atribui um tipo de animação (0 a 3) para cada partícula
         particle.setAttribute('data-type', i % 4);
         particlesContainer.appendChild(particle);
 
-        // Forçar reflow para reiniciar a animação
+        // Força um reflow para garantir que a animação seja reiniciada
         particle.offsetHeight;
     }
 }
 
-// Recriar partículas periodicamente para evitar que fiquem paradas
+/**
+ * Atualiza as partículas periodicamente
+ * Remove todas as partículas existentes e cria novas
+ */
 function refreshParticles() {
     const particlesContainer = document.querySelector('.particles');
     particlesContainer.innerHTML = '';
     createParticles();
 }
 
-// Inicializar partículas
+// Inicializa o sistema de partículas
 createParticles();
 
-// Recriar partículas a cada 30 segundos
+// Atualiza as partículas a cada 30 segundos para manter a animação fluida
 setInterval(refreshParticles, 30000);
 
-// Selecionando elementos do formulário
+/**
+ * Sistema de Login e Validação de Senha
+ */
+// Seleciona os elementos do formulário de login
 const loginForm = document.querySelector('form');
 const usuarioInput = document.getElementById('usuario');
 const senhaInput = document.getElementById('senha');
 const strengthBar = document.querySelector('.strength-bar');
 const strengthText = document.querySelector('.strength-text');
 
-// Função para verificar força da senha
+/**
+ * Verifica a força da senha inserida
+ * @param {string} password - A senha a ser verificada
+ * Pontuação baseada em:
+ * - Comprimento mínimo de 8 caracteres
+ * - Presença de letras minúsculas
+ * - Presença de letras maiúsculas
+ * - Presença de números
+ */
 function checkPasswordStrength(password) {
     let strength = 0;
     let message = '';
 
-    // Critérios de força
+    // Avalia cada critério de força
     if (password.length >= 8) strength += 25;
     if (password.match(/[a-z]+/)) strength += 25;
     if (password.match(/[A-Z]+/)) strength += 25;
     if (password.match(/[0-9]+/)) strength += 25;
 
-    // Definir cor e mensagem baseado na força
+    // Atualiza a barra de força e mensagem baseado na pontuação
     if (strength <= 25) {
         strengthBar.style.width = '25%';
         strengthBar.style.background = '#ff4444';
@@ -73,27 +90,34 @@ function checkPasswordStrength(password) {
     strengthText.textContent = message;
 }
 
-// Evento de input da senha
+// Monitora mudanças no campo de senha
 senhaInput.addEventListener('input', (e) => {
     checkPasswordStrength(e.target.value);
 });
 
-// Evento de submit do formulário
+// Manipula o envio do formulário de login
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // Aqui você pode adicionar a lógica de autenticação no futuro
+    // TODO: Implementar lógica de autenticação
     console.log('Usuário:', usuarioInput.value);
     console.log('Senha:', senhaInput.value);
     console.log('Lembrar-me:', document.getElementById('lembrar').checked);
 });
 
-// Função para verificar se um elemento está visível na viewport
+/**
+ * Sistema de Animação ao Scroll
+ */
+/**
+ * Verifica se um elemento está visível na viewport
+ * @param {HTMLElement} el - Elemento a ser verificado
+ * @returns {boolean} - True se o elemento estiver visível
+ */
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
     
-    // Elemento está visível quando pelo menos 30% dele está na tela
+    // Considera o elemento visível quando 30% dele está na tela
     const elementVisible = 30;
     
     return (
@@ -102,7 +126,10 @@ function isElementInViewport(el) {
     );
 }
 
-// Função para adicionar/remover a classe 'visible' aos elementos
+/**
+ * Gerencia a visibilidade dos elementos durante o scroll
+ * Adiciona/remove a classe 'visible' baseado na posição do elemento
+ */
 function handleScroll() {
     const sections = document.querySelectorAll('.quem-somos, .objetivo-marca, .avaliacoes, .comentarios');
     
@@ -112,13 +139,13 @@ function handleScroll() {
         if (isVisible) {
             section.classList.add('visible');
         } else if (section.getBoundingClientRect().top > window.innerHeight) {
-            // Só remove a classe se o elemento estiver completamente acima da viewport
+            // Remove a classe apenas se o elemento estiver acima da viewport
             section.classList.remove('visible');
         }
     });
 }
 
-// Adicionar evento de scroll com throttle para melhor performance
+// Implementa throttle no evento de scroll para melhor performance
 let isScrolling = false;
 window.addEventListener('scroll', () => {
     if (!isScrolling) {
@@ -130,31 +157,31 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Verificar elementos visíveis quando a página carregar
+// Inicializa a verificação de elementos visíveis
 window.addEventListener('load', handleScroll);
-
-// Verificar elementos visíveis quando a página for redimensionada
 window.addEventListener('resize', handleScroll);
 
-// Manipulação do formulário de comentários
+/**
+ * Sistema de Comentários
+ */
 const comentarioForm = document.getElementById('comentarioForm');
 if (comentarioForm) {
     comentarioForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Coletar dados do formulário
+        // Coleta os dados do formulário
         const nome = document.getElementById('nome').value;
         const email = document.getElementById('email').value;
         const rating = document.querySelector('input[name="rating"]:checked')?.value || 0;
         const mensagem = document.getElementById('mensagem').value;
         
-        // Aqui você pode adicionar código para enviar os dados para um servidor
+        // TODO: Implementar envio dos dados para o servidor
         console.log('Comentário enviado:', { nome, email, rating, mensagem });
         
-        // Mostrar mensagem de sucesso
+        // Feedback para o usuário
         alert('Obrigado pelo seu comentário!');
         
-        // Limpar o formulário
+        // Limpa o formulário
         comentarioForm.reset();
     });
 } 
